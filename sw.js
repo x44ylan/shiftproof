@@ -1,4 +1,4 @@
-const VERSION = 'shiftproof-2';
+const VERSION = 'shiftproof-3';
 const SHELL = ['.', 'index.html', 'style.css', 'app.js', 'engine.js', 'manifest.webmanifest', 'icon.svg'];
 const base = new URL('.', self.location.href);
 const paths = new Set(SHELL.map(path => new URL(path, base).pathname));
