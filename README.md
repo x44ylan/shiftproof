@@ -46,6 +46,6 @@ All example people and duties are fictional. There are no claimed pilots, testim
 
 ## Build and validation
 
-Created on October 4, 2026 UTC. Plain HTML/CSS/JavaScript with a service worker. AI-assisted coding, documentation and verification were used; no runtime AI model or generated scheduling recommendations are involved. No prior project code, template or dataset was copied into the product.
+Created on October 4, 2026 UTC. Plain HTML/CSS/JavaScript with a service worker. OpenAI Codex assisted with coding, documentation and verification; no runtime AI model or generated scheduling recommendations are involved. No prior project code, template or dataset was copied into the product.
 
 The acceptance conditions and failure cases were recorded before implementation in [spec.md](spec.md). Browser E2E verification is repeatable with `./verify.sh`; see the generated verification artifact for actual checks and results. Tests use fictional data only. MIT licensed.

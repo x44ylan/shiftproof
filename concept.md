@@ -22,4 +22,4 @@ Same-name volunteers need distinct labels. The tool knows neither qualifications
 
 Proposed validation: ask organisers to review equivalent revisions using their current method and this prototype. Compare correctly identified issues and volunteers' comprehension of the cards; inspect accessibility and consent practices. This study has not been conducted. There are no pilot users, fabricated testimonials or claimed savings.
 
-Sources are in [research.md](research.md). The runnable prototype and recorded walkthrough support this service concept.
+Sources are in [research.md](https://github.com/x44ylan/shiftproof/blob/main/research.md). The runnable prototype and recorded walkthrough support this service concept.

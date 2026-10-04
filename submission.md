@@ -22,7 +22,7 @@ Individual cards show just that person's before-and-after duties. The organiser 
 
 Plain HTML, CSS and JavaScript. Parsing and comparison run on the device. A service worker caches the app after the first visit, so reviewing a rota can continue without a connection. There is no runtime AI, external service, account, backend or paid compute.
 
-AI tools assisted with the idea, code, design, research, documentation and browser verification. All product code and the fictional demonstration dataset were created on October 4, 2026 UTC. No pre-existing project code or templates were used. Primary guidance is linked in the public repository.
+OpenAI Codex assisted with the idea, code, design, research, documentation and browser verification. All product code and the fictional demonstration dataset were created on October 4, 2026 UTC. No pre-existing project code or templates were used. Primary guidance is linked in the public repository.
 
 ## Challenges
 
