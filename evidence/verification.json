@@ -1,6 +1,6 @@
 {
   "result": "passed",
-  "verified_at": "2026-10-04T17:32:58.810Z",
+  "verified_at": "2026-10-04T17:40:41.991Z",
   "scope": "real browser UI, file upload/download, print, local persistence and offline workflows using synthetic fixtures",
   "checks": [
     "synthetic demo identifies one uncovered shift",
