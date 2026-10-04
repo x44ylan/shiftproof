@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#142b35">
+  <meta name="description" content="Compare volunteer rotas, repair gaps and double bookings, and share clear individual change cards. Works on your device without an account.">
+  <title>Shiftproof — make the next shift clear</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Shiftproof home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>shiftproof<span class="brand-dot">.</span></a>
+      <span id="offline-pill" class="local-pill"><span aria-hidden="true">↳</span> On your device. No account.</span>
+    </header>
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <div><p class="eyebrow">SMALL TEAMS. CLEAR HANDOVERS.</p><h1 id="page-title">A changed rota.<br><span>A clear next shift.</span></h1><p class="intro-copy">Spot gaps and double bookings, repair the plan, and give every volunteer just the changes they need.</p></div>
+        <div class="intro-aside"><span class="orbit" aria-hidden="true">↗</span><ol class="steps" aria-label="Review workflow"><li><span>01</span> Compare the rotas</li><li><span>02</span> Resolve the checks</li><li><span>03</span> Share change cards</li></ol></div>
+      </section>
+
+      <section class="input-panel" aria-labelledby="input-heading">
+        <div class="input-heading"><div><p class="eyebrow">YOUR WORKSPACE</p><h2 id="input-heading">Bring both versions.</h2></div><button id="demo-button" class="button quiet" type="button">Load example</button></div>
+        <div class="import-controls">
+          <div class="file-control"><label for="before-file"><span class="number-label">01</span> Previous rota</label><input id="before-file" type="file" accept=".csv,text/csv"><p id="before-file-status" class="file-hint">Original version · CSV</p></div>
+          <div class="file-control"><label for="after-file"><span class="number-label">02</span> Revised rota</label><input id="after-file" type="file" accept=".csv,text/csv"><p id="after-file-status" class="file-hint">Updated version · CSV</p></div>
+          <button id="compare-button" class="button primary" type="button">Compare rotas <span aria-hidden="true">↗</span></button>
+        </div>
+        <div class="input-foot"><p>Times are local to your event. No time zone conversion.</p><details><summary>CSV format &amp; saved reviews</summary><div class="format-help"><p>Use these six headers. Separate volunteer names with semicolons.</p><code>shift_id,task,start,end,required,volunteers</code><p>Dates: <code>2026-11-07T08:30</code>. Limit: 512 KB / 1,000 shifts per rota.</p><button id="download-template" class="text-button" type="button">Download an example CSV</button><label for="review-file" class="review-label">Reopen a saved review (JSON)</label><input id="review-file" type="file" accept=".json,application/json"></div></details></div>
+        <p id="import-error" class="error-message" role="alert" hidden></p>
+      </section>
+
+      <section class="review-heading" aria-labelledby="review-title"><div><p id="data-label" class="eyebrow">SYNTHETIC EXAMPLE · CAMPUS REPAIR DAY</p><h2 id="review-title">Review the revision.</h2></div><span id="review-badge" class="review-badge">Checking the plan</span></section>
+      <div class="metrics" aria-label="Rota review totals">
+        <div class="metric"><span class="metric-label">Changed shifts</span><strong id="change-count">0</strong><span class="metric-detail">between the two versions</span></div>
+        <div class="metric warning"><span class="metric-label">Coverage gaps</span><strong id="gap-count">0</strong><span class="metric-detail">shifts needing more people</span></div>
+        <div class="metric warning"><span class="metric-label">Double bookings</span><strong id="conflict-count">0</strong><span class="metric-detail">overlapping duties</span></div>
+        <div class="metric total"><span class="metric-label">Checks remaining</span><strong id="issue-count">0</strong><span class="metric-detail">review before sharing</span></div>
+      </div>
+
+      <div class="workspace">
+        <section class="rota-panel" aria-labelledby="rota-heading"><div class="panel-heading"><div><p class="eyebrow">01 / COMPARE</p><h3 id="rota-heading">The day, before &amp; after.</h3></div><div class="legend"><span><i class="before-key"></i>Previous</span><span><i class="after-key"></i>Revised</span></div></div><div id="timeline-heading" class="timeline-heading" aria-hidden="true"></div><div id="shift-list" class="shift-list"></div><p class="panel-note">Choose a shift to inspect its changes and edit the revised assignments.</p></section>
+        <section class="repair-panel" aria-labelledby="repair-heading"><div class="panel-heading"><div><p class="eyebrow">02 / REPAIR</p><h3 id="repair-heading">Make the plan work.</h3></div><span aria-hidden="true" class="panel-symbol">✳</span></div><div id="shift-detail"></div><form id="assignment-form"><fieldset id="assignment-fieldset"><legend>Revised assignments</legend><div id="assignment-list" class="assignment-list"></div><div class="add-person"><label for="new-person">Add another volunteer</label><div><input id="new-person" type="text" maxlength="120" placeholder="Volunteer name" autocomplete="off"><button id="add-person" class="button quiet" type="button">Add</button></div></div><p class="assignment-note">No overlapping duty means only that the rota is clear. Confirm availability and agreement with the person.</p><button id="apply-assignment" class="button primary wide" type="submit">Save assignments <span aria-hidden="true">→</span></button></fieldset></form><p id="assignment-error" class="error-message" role="alert" hidden></p></section>
+      </div>
+
+      <section class="share-section" aria-labelledby="share-heading"><div class="share-intro"><p class="eyebrow">03 / SHARE</p><h2 id="share-heading">Only the changes<br>that matter to them.</h2><p>A personal card shows the previous duty and the new one. Print it or save it as a PDF through your browser.</p><label for="person-select">Choose a volunteer</label><select id="person-select"></select><button id="print-card" class="button primary" type="button">Print this card <span aria-hidden="true">↗</span></button><p class="small-note">Cards do not send themselves. Share them with your volunteers in the way they prefer.</p></div><div id="card-preview" class="card-preview" aria-live="polite"></div></section>
+      <section class="export-panel" aria-labelledby="export-heading"><div><p class="eyebrow">KEEP THE REVIEW</p><h3 id="export-heading">Take the plan with you.</h3><p id="export-note">Download the revised rota and a review you can reopen here.</p></div><div class="export-actions"><button id="download-csv" class="button quiet" type="button">Download revised CSV <span aria-hidden="true">↓</span></button><button id="download-json" class="button quiet" type="button">Save review JSON <span aria-hidden="true">↓</span></button></div></section>
+      <div class="workspace-footer"><p id="storage-status">Checking local storage…</p><button id="reset-button" class="text-button" type="button">Clear saved review</button></div>
+      <p id="status" class="status-message" role="status" aria-live="polite"></p>
+    </main>
+    <footer class="site-footer"><span>shiftproof.</span><p>Clear plans, shared carefully. No account. No tracking.</p></footer>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
