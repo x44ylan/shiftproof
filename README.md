@@ -6,7 +6,7 @@ A welcome desk moving from 08:00–09:30 to 08:30–10:00 looks like one spreads
 
 ## Try it
 
-[Live workspace](https://x44ylan.github.io/shiftproof/) · [Recorded walkthrough](https://x44ylan.github.io/shiftproof/demo.html)
+[Live workspace](https://x44ylan.com/shiftproof/) · [Recorded walkthrough](https://x44ylan.com/shiftproof/demo.html)
 
 Open the live app, use the clearly labelled fictional campus repair-day example, and follow **compare → repair → share**. The example contains a gap and an overlapping assignment. Replace Alex at setup with Jules, then add Alex to the donated-items shift. Check the updated review and print Alex's change card.
 
